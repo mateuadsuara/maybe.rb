@@ -11,5 +11,9 @@ module Maybe
     def self.change(&transformation)
       self
     end
+
+    def self.if(&predicate)
+      self
+    end
   end
 end

@@ -73,4 +73,28 @@ RSpec.describe Maybe do
       end
     end
   end
+
+  describe 'if method for' do
+    describe Maybe::This do
+      it 'returns itself when the predicate is true' do
+        this_value = Maybe::This.new("value")
+        returned_value = this_value.if {|it| it == "value"}
+        expect(returned_value).to be(this_value)
+      end
+
+      it 'returns nothing when the predicate is false' do
+        this_value = Maybe::This.new("value")
+        returned_value = this_value.if {|it| it != "value"}
+        expect(returned_value).to be(Maybe::Nothing)
+      end
+    end
+
+    describe Maybe::Nothing do
+      it 'returns itself' do
+        nothing = Maybe::Nothing
+        returned_value = nothing.if {|it| it == "value"}
+        expect(returned_value).to be(nothing)
+      end
+    end
+  end
 end

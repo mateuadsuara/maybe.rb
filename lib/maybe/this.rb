@@ -17,6 +17,11 @@ module Maybe
       self.class.new(yield value)
     end
 
+    def if(&predicate)
+      return self if yield value
+      Maybe::Nothing
+    end
+
     private
     attr_accessor :value
   end
