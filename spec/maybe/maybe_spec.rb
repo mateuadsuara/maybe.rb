@@ -1,5 +1,4 @@
-require 'maybe/this'
-require 'maybe/nothing'
+require 'maybe'
 
 RSpec.describe Maybe do
   describe 'do method for' do
