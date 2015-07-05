@@ -23,6 +23,6 @@ module Maybe
     end
 
     private
-    attr_accessor :value
+    attr_reader :value
   end
 end
