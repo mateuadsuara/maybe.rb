@@ -1,6 +1,6 @@
 module Maybe
   class Nothing
-    def self.do(&invoke_side_effect)
+    def self.do(&side_effect)
       self
     end
 

@@ -4,7 +4,7 @@ module Maybe
       @value = value
     end
 
-    def do(&invoke_side_effect)
+    def do(&side_effect)
       yield value
       self
     end
