@@ -54,4 +54,23 @@ RSpec.describe Maybe do
       end
     end
   end
+
+  describe 'change method for' do
+    describe Maybe::This do
+      it 'transforms its value into a new one' do
+        original_value = Maybe::This.new("value")
+        changed_value = original_value.change {|it| it.upcase}
+        expect(changed_value.or{}).to eq("VALUE")
+        expect(original_value.or{}).to eq("value")
+      end
+    end
+
+    describe Maybe::Nothing do
+      it 'returns itself' do
+        nothing = Maybe::Nothing
+        changed_nothing = nothing.change {|it| it.upcase}
+        expect(changed_nothing).to be(nothing)
+      end
+    end
+  end
 end

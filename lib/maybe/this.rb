@@ -13,6 +13,10 @@ module Maybe
       value
     end
 
+    def change(&transformation)
+      self.class.new(yield value)
+    end
+
     private
     attr_accessor :value
   end

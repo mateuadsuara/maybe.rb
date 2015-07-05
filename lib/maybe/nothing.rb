@@ -7,5 +7,9 @@ module Maybe
     def self.or(&alternative)
       yield
     end
+
+    def self.change(&transformation)
+      self
+    end
   end
 end
