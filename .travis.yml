@@ -4,3 +4,6 @@ rvm:
   - "2.1.0"
   - "2.0.0-p598"
 script: "rake"
+addons:
+  code_climate:
+      repo_token: 42fab4038bc23397eae6456725052862d96e5f35e57676e9c11ce88c76da19d7
