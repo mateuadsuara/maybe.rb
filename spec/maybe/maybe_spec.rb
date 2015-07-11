@@ -1,3 +1,4 @@
+require 'spec_helper'
 require 'maybe'
 
 RSpec.describe Maybe do
