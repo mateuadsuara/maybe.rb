@@ -19,7 +19,7 @@ module Maybe
     end
 
     def change(&transformation)
-      self.class.new(yield value)
+      Maybe.this(yield value)
     end
 
     def if(&predicate)
