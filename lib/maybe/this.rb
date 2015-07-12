@@ -1,4 +1,9 @@
 module Maybe
+  def self.this(value)
+    return nothing if value.nil?
+    This.new(value)
+  end
+
   class This
     def initialize(value)
       @value = value
@@ -19,7 +24,7 @@ module Maybe
 
     def if(&predicate)
       return self if yield value
-      Maybe::Nothing
+      Maybe.nothing
     end
 
     private

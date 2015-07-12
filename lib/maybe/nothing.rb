@@ -1,4 +1,8 @@
 module Maybe
+  def self.nothing
+    Nothing
+  end
+
   class Nothing
     def self.do(&side_effect)
       self
