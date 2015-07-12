@@ -77,6 +77,18 @@ RSpec.describe Maybe do
         changed_value = original_value.change {|it| nil}
         expect(changed_value).to be(Maybe.nothing)
       end
+
+      it 'is nothing when the result is nothing' do
+        original_value = Maybe.this("value")
+        changed_value = original_value.change {|it| Maybe.nothing}
+        expect(changed_value).to be(Maybe.nothing)
+      end
+
+      it 'is a value when the result is another this' do
+        original_value = Maybe.this("value")
+        changed_value = original_value.change {|it| Maybe.this("another value")}
+        expect(changed_value.or{}).to eq("another value")
+      end
     end
 
     describe Maybe::Nothing do

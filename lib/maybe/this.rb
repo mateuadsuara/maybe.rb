@@ -1,6 +1,7 @@
 module Maybe
   def self.this(value)
-    return nothing if value.nil?
+    return Nothing if value.nil?
+    return value if value == Nothing || value.instance_of?(This)
     This.new(value)
   end
 
