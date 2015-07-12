@@ -84,7 +84,7 @@ RSpec.describe Maybe do
         expect(changed_value).to be(Maybe.nothing)
       end
 
-      it 'is a value when the result is another this' do
+      it 'does not wrap again when the result is already wrapped' do
         original_value = Maybe.this("value")
         changed_value = original_value.change {|it| Maybe.this("another value")}
         expect(changed_value.or{}).to eq("another value")
